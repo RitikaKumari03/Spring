@@ -14,7 +14,7 @@ public class ServiceClass {
     public RepositoryClass repositoryClass;
 
     public boolean saveRecord(ModelClass modelClass) {
-        if (repositoryClass.alreadyExists(String.valueOf(modelClass.getName()))) {
+        if (repositoryClass.existsByName(String.valueOf(modelClass.getName()))) {
             throw new ExceptionClass("Already Exists" + modelClass.getName() + HttpStatus.CONFLICT);
         } else {
             repositoryClass.save(modelClass);
